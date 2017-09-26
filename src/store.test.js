@@ -9,9 +9,15 @@ describe("Messages", () => {
             timestamp: '2017-02-09T04:27:38Z'
         }];
 
-        const updatedStore = messagesReducer({}, {type: 'MESSAGES_LOADING_PENDING', payload: messages});
+        const expected = {
+            isLoading: true,
+            error: false,
+            messages: []
+        };
 
-        expect(updatedStore.isLoading).toEqual(true);
+        const actual = messagesReducer({}, {type: 'MESSAGES_LOADING_PENDING', payload: messages});
+
+        expect(actual).toEqual(expected);
     });
 
     it('should set messages in the store', () => {
@@ -22,9 +28,15 @@ describe("Messages", () => {
             timestamp: '2017-02-09T04:27:38Z'
         }];
 
-        const updatedStore = messagesReducer({}, {type: 'MESSAGES_LOADING_FULFILLED', payload: messages});
+        const expected = {
+            isLoading: false,
+            error: false,
+            messages: messages
+        };
 
-        expect(updatedStore.messages).toEqual(messages);
+        const actual = messagesReducer({}, {type: 'MESSAGES_LOADING_FULFILLED', payload: messages});
+
+        expect(actual).toEqual(expected);
     });
 
     it('should return error when the messages promise is rejected', () => {
@@ -35,9 +47,15 @@ describe("Messages", () => {
             timestamp: '2017-02-09T04:27:38Z'
         }];
 
-        const updatedStore = messagesReducer({}, {type: 'MESSAGES_LOADING_REJECTED', payload: messages});
+        const expected = {
+            isLoading: false,
+            error: true,
+            messages: []
+        };
 
-        expect(updatedStore.error).toEqual(true);
+        const actual = messagesReducer({}, {type: 'MESSAGES_LOADING_REJECTED', payload: messages});
+
+        expect(actual).toEqual(expected);
     });
 });
 
@@ -52,9 +70,15 @@ describe("Members", () => {
             ip: "192.86.3.21"
         }];
 
-        const updatedStore = membersReducer({}, {type: 'MEMBERS_LOADING_PENDING', payload: members});
+        const expected = {
+            isLoading: true,
+            error: false,
+            members: []
+        };
 
-        expect(updatedStore.isLoading).toEqual(true);
+        const actual = membersReducer({}, {type: 'MEMBERS_LOADING_PENDING', payload: members});
+
+        expect(actual).toEqual(expected);
     });
 
     it('should set members in the store', () => {
@@ -67,9 +91,15 @@ describe("Members", () => {
             ip: "192.86.3.21"
         }];
 
-        const updatedStore = membersReducer({}, {type: 'MEMBERS_LOADING_FULFILLED', payload: members});
+        const expected = {
+            isLoading: false,
+            error: false,
+            members: members
+        };
 
-        expect(updatedStore.members).toEqual(members);
+        const actual = membersReducer({}, {type: 'MEMBERS_LOADING_FULFILLED', payload: members});
+
+        expect(actual).toEqual(expected);
     });
 
     it('should return error when the promise is rejected', () => {
@@ -82,9 +112,15 @@ describe("Members", () => {
             ip: "192.86.3.21"
         }];
 
-        const updatedStore = membersReducer({}, {type: 'MEMBERS_LOADING_REJECTED', payload: members});
+        const expected = {
+            isLoading: false,
+            error: true,
+            members: []
+        };
 
-        expect(updatedStore.error).toEqual(true);
+        const actual = membersReducer({}, {type: 'MEMBERS_LOADING_REJECTED', payload: members});
+
+        expect(actual).toEqual(expected);
     });
 });
 

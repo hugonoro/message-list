@@ -32,7 +32,7 @@ export function messagesReducer(state = {}, action) {
 export function membersReducer(state = {}, action) {
     switch(action.type){
         case 'MEMBERS_LOADING_PENDING':
-            // Typical state to support loading stage
+            // TODO: handle isLoading in the components
             return Object.assign({}, state, {
                 isLoading: true,
                 error: false,
@@ -45,7 +45,7 @@ export function membersReducer(state = {}, action) {
                 members: action.payload,
             });
         case 'MEMBERS_LOADING_REJECTED':
-            // Returns error=true to be handled later
+            // TODO: handle error in the components
             return Object.assign({}, state, {
                 isLoading: false,
                 error: true,
