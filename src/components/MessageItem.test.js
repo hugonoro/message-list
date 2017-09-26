@@ -57,4 +57,20 @@ describe("Message items in list", () => {
         );
         expect(wrapper.contains(expected)).toEqual(true);
     });
+
+    it("should display the timestamp element", () => {
+        const message =
+            {
+                msgId: 'cd445e6d-e514-424f-ba8f-16ec842002c6',
+                text: 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.',
+                email: "rnguyen6@odnoklassniki.ru",
+                avatar: "http://dummyimage.com/100x100.png/dddddd/000000",
+                timestamp: '2017-02-09T04:27:38Z'
+            };
+
+        const wrapper = shallow(<MessageItem message={message}/>);
+        const expected = "2017-02-09T04:27:38Z";
+
+        expect(wrapper.contains(expected)).toEqual(true);
+    });
 });
