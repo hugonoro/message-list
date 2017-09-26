@@ -24,7 +24,7 @@ describe("Message list component", () => {
             }
         ];
 
-        const wrapper = shallow(<MessageList messageList={messageList}/>);
+        const wrapper = shallow(<MessageList messages={messageList}/>);
 
         const expected = (
             <div>Loading Messages...</div>
@@ -50,7 +50,7 @@ describe("Message list component", () => {
             }
         ];
 
-        const wrapper = shallow(<MessageList messageList={messageList}/>);
+        const wrapper = shallow(<MessageList messages={messageList}/>);
 
         expect(wrapper.find('MessageItem').length).toEqual(messageList.length);
     })

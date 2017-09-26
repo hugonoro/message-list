@@ -15,7 +15,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <MessageList messageList={this.props.messageList} />
+                <MessageList messages={this.props.messageList} />
             </div>
         );
     }

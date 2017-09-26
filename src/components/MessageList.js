@@ -2,10 +2,10 @@ import React from 'react';
 
 import MessageItem from './MessageItem'
 
-const MessageList = (props) => (
+const MessageList = ({messages}) => (
     <div className="App-message-list">
-        { props.messageList
-            ? props.messageList.map(message => {
+        { messages
+            ? messages.map(message => {
                 return (
                     <MessageItem key={message.msgId} message={message}/>
                 );
